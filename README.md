@@ -32,13 +32,14 @@ device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 model = models.resnet18(pretrained=True).to(device)
 
 image = torch.rand((1, 3, 224, 224)).to(device)
-attribution = Saliency(model).attribute(image, target=17)
+label = 17
+attribution = Saliency(model).attribute(image, target=label)
 
 # Average the attribution over the color channels
 attribution = torch.mean(attribution, dim=1)
 
 measure = Measures(model, batch_size=250, irof_segments=70)
-score, y = measure.compute_IROF(image[0], attribution[0], 17)
+score, y = measure.compute_IROF(image[0], attribution[0], label)
 
 ```
 
