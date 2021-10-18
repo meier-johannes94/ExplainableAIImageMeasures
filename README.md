@@ -1,6 +1,6 @@
 # Compute IAUC, DAUC, IROF scores to measure the quality of image attributions (PyTorch)
 
-This package allows to evaluate the quality of attributions wrt. to your original iamge. 
+Use this package to evaluate the quality of your attribution wrt. to your original image. 
 For that purpose, you can compute IAUC (Insert Area Under Curve, Insertion score), DAUC (Delete Area Under Curve, Deletion score) and IROF (Iterative Removal Of Features).
 
 Install via [PyPi](https://pypi.org/project/explainable-ai-image-measures/):
@@ -15,13 +15,13 @@ The shared idea behind all of them is to remove the most relevant pixels from th
 ![See github for a gif visualization of the mechanics](irof.gif)
 
 In contrast to other publicly available code, 
-* all of the heavy computation is running on the GPU (no numpy or CPU in between)
+* the demanding computation is fully running on the GPU (no numpy or CPU in between)
 * you can compute the scores for a single image also batch-wise
 * there is parametrization possible to suit your needs
 * IAUC, DAUC and IROF is possible using a single package
-* multiple attributions for multiple images are possible (see example.ipynb)
+* multiple attributions for multiple images are possible (see [example.ipynb](example.ipynb))
 
-Here a minimal code for a single image: 
+Here is a minimal code example for a single image: 
 ```python
 import torch
 from captum.attr import Saliency
