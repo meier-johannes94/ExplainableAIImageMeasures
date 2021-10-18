@@ -43,3 +43,6 @@ score, y = measure.compute_IROF(image[0], attribution[0], 17)
 
 ```
 
+
+### References
+[IROF: a low resource evaluation metric for explanation methods](https://arxiv.org/abs/2003.08747)
