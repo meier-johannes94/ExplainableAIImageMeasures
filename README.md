@@ -1,12 +1,11 @@
 # Compute IAUC, DAUC, IROF scores to measure the quality of image attributions (PyTorch)
 
-Use this package to evaluate the quality of your attribution wrt. to the original image. 
-For that purpose, you can compute IAUC (Insert Area Under Curve, Insertion score), DAUC (Delete Area Under Curve, Deletion score) and IROF (Iterative Removal Of Features).
+This package helps to evaluate the quality of your feature attribution quality wrt. to your original image. For that purpose, you can compute IAUC (Insert Area Under Curve, Insertion score), DAUC (Delete Area Under Curve, Deletion score), and IROF (Iterative Removal Of Features).
 
 Install via [PyPi](https://pypi.org/project/explainable-ai-image-measures/):
 ``pip install explainable-ai-image-measures``
 
-The shared idea behind all of them is to remove the most relevant pixels from the original image and replace it by a baseline color (DAUC, IROF) or to take blank a blank image and add the most relevant pixels again starting with the most relevant (IAUC). In contrast to IAUC and DAUC, IROF does this superpixel-wise. 
+The shared idea behind all of them is to remove the most relevant pixels from the original image and replace it with a baseline color (DAUC, IROF) or to take blank a blank image and add the most relevant pixels again starting with the most relevant (IAUC). In contrast to IAUC and DAUC, IROF does this superpixel-wise. 
 1. Create new images by removing / adding pixels / entire areas
 2. Send the newly created images through the network and save the probabilities.
 3. Compute the Area Under the Curve (AUC) for the recorded probabilities. 
@@ -15,10 +14,10 @@ The shared idea behind all of them is to remove the most relevant pixels from th
 ![See github for a gif visualization of the mechanics](irof.gif)
 
 In contrast to other publicly available code, 
-* the demanding computation is fully running on the GPU (no numpy or CPU in between)
+* the demanding computation is fully running on the GPU (no NumPy or CPU in between)
 * you can compute the scores for a single image also batch-wise
 * there is parametrization possible to suit your needs
-* IAUC, DAUC and IROF is possible using a single package
+* IAUC, DAUC, and IROF is possible using a single package
 * multiple attributions for multiple images are possible (see [example.ipynb](example.ipynb))
 
 Here is a minimal code example for a single image: 
