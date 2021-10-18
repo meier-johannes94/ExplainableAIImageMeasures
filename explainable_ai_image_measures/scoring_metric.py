@@ -30,8 +30,13 @@ class Measures:
                             of pixels to speed up the computation. Only relevant for IAUC, DAUC
         normalize: With activated normalization the new probabilities are divided by the probabiilties of the old image.
                    This allows the comparison of attributions independent of how sure the network is for the original
-                   image.
-        clip01: Clips the computed probabilities between [0, 1]. This is only relevant for normalize=True
+                   image. Activating normalization is highly encouraged if comparing attributions across several
+                   images.
+        clip01: Clips the computed probabilities between [0, 1]. This is only relevant for normalize=True.
+                In some cases the probabilities after e.g. removing parts of the original image may be higher than
+                before. E.g. for IROF this could theoretically lead to negative scores. If you want to prohibit this,
+                activate clip01. Note that the clipping clips each individual score. Indirectly you also ensure that
+                the final score is within [0,1]
         baseline_color: For IROF and DAUC we iteratively remove parts of the image and replace it by the baseline
                         color as specified here. For IAUC we start with an image consisting only of the baseline_color.
                         By default the mean color is used.
