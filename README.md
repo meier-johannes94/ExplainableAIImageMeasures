@@ -3,13 +3,16 @@
 This package allows to evaluate the quality of attributions wrt. to your original iamge. 
 For that purpose, you can compute IAUC (Insert Area Under Curve, Insertion score), DAUC (Delete Area Under Curve, Deletion score) and IROF (Iterative Removal Of Features).
 
+Install via [PyPi](https://pypi.org/project/explainable-ai-image-measures/):
+``pip install explainable-ai-image-measures``
+
 The shared idea behind all of them is to remove the most relevant pixels from the original image and replace it by a baseline color (DAUC, IROF) or to take blank a blank image and add the most relevant pixels again starting with the most relevant (IAUC). In contrast to IAUC and DAUC, IROF does this superpixel-wise. 
 1. Create new images by removing / adding pixels / entire areas
 2. Send the newly created images through the network and save the probabilities.
 3. Compute the Area Under the Curve (AUC) for the recorded probabilities. 
 4. Interpretation: For DAUC lower scores are better, for IROF and IAUC higher scores.
 
-![Mechanics behind IROF](irof.gif)
+![See github for a gif visualization of the mechanics](irof.gif)
 
 In contrast to other publicly available code, 
 * all of the heavy computation is running on the GPU (no numpy or CPU in between)
