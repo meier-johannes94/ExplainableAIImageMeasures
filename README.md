@@ -33,8 +33,8 @@ model = models.resnet18(pretrained=True).to(device)
 
 image = torch.rand((1, 3, 224, 224)).to(device)
 label = 17
-attribution = Saliency(model).attribute(image, target=label)
 
+attribution = Saliency(model).attribute(image, target=label)
 # Average the attribution over the color channels
 attribution = torch.mean(attribution, dim=1)
 
